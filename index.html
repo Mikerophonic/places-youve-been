@@ -4,10 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
     <script src="js/scripts.js"></script>
-    
+
 </head>
 <body>
+    <h1>Travel Log</h1>
+    <h2>Add a location:</h2>
+    <form id ="new-location">
+        <label for="new-place">Location</label>
+        <input type="text" id="new-place" name="new-place">
+        <label for="new-time">Time Visited</label>
+        <input type="text" id="new-time" name="new-time">
+        <label for="new-notes">Notes</label>
+        <input type="text" id="new-notes" name="new-notes">
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>Locations:</h2>
+    <div id="places">
+    </div>
+
+    <div id="location-details" class="hidden">
+        <p>Location: <span id="location"></span></p>
+        <p>Time: <span id="time"></span></p>
+        <p>Notes: <span id="notes"></span></p>
+    </div>
+
+
     
 </body>
 </html>
