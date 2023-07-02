@@ -1,38 +1,27 @@
-/// Business Logic for Travel Log ///
-
-//----Creates place construct
-function travelLog() {
-    this.place = {};
-}
-
-/// Business Log for Places ///
-
-//----Creates new key in travelLog and asggins it a value //
-travelLog.prototype.addNewPlace = function(newPlace) {
-    this.newPlace[newPlace.Location] = newPlace;
-};
-
-//----Creates newPlace object in travelLog//
-function NewPlace(Location, Time, Notes) {
-    this.Location = Location;
-    this.Time = Time;
-    this.Notes = Notes;
-}
-
-newPlace.prototype.placeLog = function () {
-    return this.Location + " " + this.Time + " " + this.Notes;
-};
-
-
 // Business Logic for TravelLog ---------
 function TravelLog() {
     this.places = {};
+    this.currentId = 0;
   }
   
 TravelLog.prototype.addPlace = function(place) {
+    place.id = this.assignId();
     this.places[place.Location] = place;
   };
+
+  TravelLog.prototype.assignId = function() {
+    this.currentId += 1;
+    return this.currentId;
+  };
   
+TravelLog.prototype.findLog = function(id) {
+    if (this.places[id] !== undefined) {
+        return this.places[id]
+    }
+    return false;
+};
+
+
 // Business Logic for Places ---------
 function Place(location, time, notes) {
     this.location = location;
